@@ -16,13 +16,6 @@ let SymbolLoader = function() {
             next();
         } else if (url.search(/\.shapes\.(json|txt)$/i) > -1) {
             ShapesCache.add(resource.name, data);
-        } else if (data.nodeName && data.nodeName === 'IMG') {
-            // Add individual images to the texture cache by their
-            // short symbol name, not the URL
-            PIXI.Texture.addToCache(
-                PIXI.Texture.fromFrame(url),
-                resource.name
-            );
         }
         next();
     };
