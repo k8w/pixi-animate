@@ -49,6 +49,11 @@ declare namespace animate {
     }
 
     export class MovieClip extends PIXI.DisplayObject {
+        static readonly DEFAULT_FRAMERATE: number;
+        static readonly INDEPENDENT: string;
+        static readonly SINGLE_FRAME: string;
+        static readonly SYNCHED: string;
+        
         public mode:number;
         public startPosition:number;
         public loop:boolean;
@@ -56,13 +61,14 @@ declare namespace animate {
         public paused:boolean;
         public actionsEnabled:boolean;
         public autoReset:boolean;
-        public labels:FrameLabel[];
-        public labelsMap:LabelMap;
+        public readonly labels:FrameLabel[];
+        public readonly labelsMap:LabelMap;
         public elapsedTime:number;
         public framerate:number;
-        public parentFramerate:number;
-        public totalFrames:number;
-        public currentFrame:number;
+        public readonly parentFramerate:number;
+        public readonly totalFrames:number;
+        public readonly currentFrame: number;
+        public readonly currentLabel: string;
 
         constructor(
             options:number|MovieClipOptions,
