@@ -15,7 +15,7 @@ let SymbolLoader = function() {
         if (!data) {
             next();
         } else if (url.search(/\.shapes\.(json|txt)$/i) > -1) {
-            ShapesCache.add(resource.name, data);
+            ShapesCache.add(resource.name.replace(/\.shapes\.(json|txt)$/i, ''), data);
         }
         next();
     };
