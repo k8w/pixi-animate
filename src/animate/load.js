@@ -110,15 +110,15 @@ const load = function(options, parent, complete, basePath) {
     }
 
     // Check for assets to preload
-    let assets = options.stage.assets || {};
-    if (assets && Object.keys(assets).length) {
+    let assets = options.stage.assets;
+    if (assets && assets.length) {
         // assetBaseDir can accept either with trailing slash or not
         let basePath = options.basePath;
         if (basePath) {
             basePath += "/";
         }
-        for (let id in assets) {
-            loader.add(id, basePath + assets[id]);
+        for (let src of assets) {
+            loader.add(src, basePath + src);
         }
         loader.once('complete', done).load();
     } else {
