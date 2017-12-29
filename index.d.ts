@@ -48,7 +48,7 @@ declare namespace animate {
         public load(StageRef:any, callback?:LoadCallback, basePath?:string):PIXI.loaders.Loader;
     }
 
-    export class MovieClip extends PIXI.DisplayObject {
+    export class MovieClip extends PIXI.Container {
         static readonly DEFAULT_FRAMERATE: number;
         static readonly INDEPENDENT: string;
         static readonly SINGLE_FRAME: string;
