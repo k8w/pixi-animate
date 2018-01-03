@@ -1010,7 +1010,7 @@ MovieClip.SYNCHED = 2;
  * @default 24
  * @readonly
  */
-MovieClip.DEFAULT_FRAMERATE = 24;
+MovieClip.DEFAULT_FRAMERATE = 60;
 
 /**
  * Extend a container
