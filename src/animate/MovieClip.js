@@ -657,6 +657,7 @@ class MovieClip extends Container {
      */
     play() {
         this.paused = false;
+        this.emit('play');
     }
 
     /**
@@ -665,6 +666,7 @@ class MovieClip extends Container {
      */
     stop() {
         this.paused = true;
+        this.emit('stop');
     }
 
     /**
