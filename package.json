@@ -1,7 +1,7 @@
 {
   "name": "k8w-pixi-animate",
   "description": "PIXI plugin for the PixiAnimate Extension (k8w modified)",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "main": "lib/index.js",
   "author": "k8w <me@k8w.io>",
   "devDependencies": {

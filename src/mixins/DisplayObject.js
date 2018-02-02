@@ -141,14 +141,24 @@ p.setTint = p.i = function(tint) {
  * @return {PIXI.DisplayObject} Object for chaining
  */
 p.setColorTransform = p.c = function(r, rA, g, gA, b, bA) {
-    var filter = this.colorTransformFilter;
-    filter.matrix[0] = r;
-    filter.matrix[4] = rA;
-    filter.matrix[6] = g;
-    filter.matrix[9] = gA;
-    filter.matrix[12] = b;
-    filter.matrix[14] = bA;
-    this.filters = [filter];
+    if (this instanceof PIXI.Sprite) {
+        this.tint = ((r + rA) * 255 << 16) + ((g + gA) * 255 << 8) + (b + bA) * 255;
+    }
+    else if (this instanceof PIXI.Container) {
+        for (let child of this.children) {
+            p.c.apply(child, arguments);
+        }
+    }
+    // else {
+    //     var filter = this.colorTransformFilter;
+    //     filter.matrix[0] = r;
+    //     filter.matrix[4] = rA;
+    //     filter.matrix[6] = g;
+    //     filter.matrix[9] = gA;
+    //     filter.matrix[12] = b;
+    //     filter.matrix[14] = bA;
+    //     this.filters = [filter];
+    // }
     return this;
 };
 
